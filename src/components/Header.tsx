@@ -31,14 +31,14 @@ export default function Header({
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50">
       <div className="max-w-lg mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold">Instagram</h1>
+          <h1 className="text-xl font-bold text-gray-800">Instagram</h1>
 
           <div className="flex items-center space-x-4">
             <button
               onClick={onCreatePost}
               className="p-2 hover:bg-gray-100 rounded-full"
             >
-              <Camera className="w-6 h-6" />
+              <Camera className="w-6 h-6 text-gray-700" />
             </button>
 
             <button
@@ -46,7 +46,7 @@ export default function Header({
               className={`p-2 hover:bg-gray-100 rounded-full ${showLikesOnly ? "bg-red-100" : ""}`}
             >
               <Heart
-                className={`w-6 h-6 ${showLikesOnly ? "text-red-600 fill-current" : ""}`}
+                className={`w-6 h-6 ${showLikesOnly ? "text-red-600 fill-current" : "text-gray-700"}`}
               />
             </button>
 
@@ -55,7 +55,7 @@ export default function Header({
               className={`p-2 hover:bg-gray-100 rounded-full ${showBookmarksOnly ? "bg-yellow-100" : ""}`}
             >
               <Bookmark
-                className={`w-6 h-6 ${showBookmarksOnly ? "text-yellow-600 fill-current" : ""}`}
+                className={`w-6 h-6 ${showBookmarksOnly ? "text-yellow-600 fill-current" : "text-gray-700"}`}
               />
             </button>
 
@@ -63,7 +63,7 @@ export default function Header({
               onClick={() => router.push("/profile")}
               className="p-2 hover:bg-gray-100 rounded-full"
             >
-              <UserIcon className="w-6 h-6" />
+              <UserIcon className="w-6 h-6 text-gray-700" />
             </button>
           </div>
         </div>

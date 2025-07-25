@@ -76,7 +76,9 @@ export default function CreatePost({
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="text-lg font-semibold">Create New Post</h2>
+          <h2 className="text-lg font-semibold text-gray-800">
+            Create New Post
+          </h2>
           <button
             onClick={onClose}
             className="p-1 hover:bg-gray-100 rounded-full"
@@ -87,10 +89,10 @@ export default function CreatePost({
 
         <form onSubmit={handleSubmit} className="p-4">
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-sm font-medium mb-2 text-gray-800">
               Select Image
             </label>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center relative cursor-pointer hover:border-gray-400 transition-colors">
               {imagePreview ? (
                 <div className="relative">
                   <img
@@ -100,37 +102,40 @@ export default function CreatePost({
                   />
                   <button
                     type="button"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setImageFile(null);
                       setImagePreview(null);
                     }}
-                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1"
+                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 z-10"
                   >
                     <X className="w-4 h-4" />
                   </button>
                 </div>
               ) : (
                 <div>
-                  <Upload className="w-12 h-12 mx-auto text-gray-400 mb-2" />
-                  <p className="text-gray-500">Click to upload an image</p>
+                  <Upload className="w-12 h-12 mx-auto text-gray-600 mb-2" />
+                  <p className="text-gray-700">Click to upload an image</p>
                 </div>
               )}
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
-                className="relative inset-0 w-full h-full opacity-0 cursor-pointer"
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
             </div>
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Caption</label>
+            <label className="block text-sm font-medium mb-2 text-gray-800">
+              Caption
+            </label>
             <textarea
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Write a caption..."
-              className="w-full p-2 border border-gray-300 rounded-md resize-none"
+              className="w-full p-2 border border-gray-300 rounded-md resize-none text-gray-800 placeholder:text-gray-600"
               rows={3}
             />
           </div>

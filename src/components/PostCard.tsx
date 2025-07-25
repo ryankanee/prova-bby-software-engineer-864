@@ -177,13 +177,13 @@ export default function PostCard({
         </div>
 
         {likesCount > 0 && (
-          <p className="font-medium text-sm mb-1">
+          <p className="font-medium text-sm mb-1 text-gray-800">
             {likesCount} {likesCount === 1 ? "like" : "likes"}
           </p>
         )}
 
         {post.caption && (
-          <p className="text-sm mb-2">
+          <p className="text-sm mb-2 text-gray-800">
             <span className="font-medium text-gray-900 mr-2">
               {post.profiles.username}
             </span>
@@ -194,7 +194,7 @@ export default function PostCard({
         {post.comments.length > 0 && (
           <div className="space-y-1 mb-2">
             {post.comments.map((comment) => (
-              <p key={comment.id} className="text-sm">
+              <p key={comment.id} className="text-sm text-gray-800">
                 <span className="font-medium text-gray-900 mr-2">
                   {comment.profiles.username}
                 </span>
@@ -210,7 +210,7 @@ export default function PostCard({
             placeholder="Add a comment..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            className="flex-1 text-sm text-gray-900 outline-none"
+            className="flex-1 text-sm text-gray-900 outline-none placeholder:text-gray-600"
             disabled={isSubmitting}
           />
           {comment.trim() && (
